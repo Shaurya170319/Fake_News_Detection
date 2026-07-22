@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow mb-3">
+            <div class="card-header
+                {% if combined.verdict == 'LIKELY REAL' %}bg-success
+                {% elif combined.verdict == 'LIKELY FAKE' %}bg-danger
+                {% else %}bg-warning{% endif %} text-white">
+                <h4>Verdict: <strong>{{ combined.verdict }}</strong></h4>
+            </div>
+            <div class="card-body">
+                <p>{{ combined.explanation }}</p>
+                <p class="small text-muted mb-0">
+                    ML model: {{ result.prediction }} ({{ result.confidence }}% confidence) &middot;
+                    {{ combined.articles_found }} article{{ 's' if combined.articles_found != 1 else '' }} specifically about this story
+                    {% if combined.related_articles_found > combined.articles_found %}
+                        &middot; {{ combined.related_articles_found }} loosely related article{{ 's' if combined.related_articles_found != 1 else '' }} found in total
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-header {{ 'bg-success' if result.prediction == 'REAL' else 'bg-danger' }} text-white">
+                <h5>ML Prediction: <strong>{{ result.prediction }}</strong> ({{ result.confidence }}% confidence)</h5>
+            </div>
+            <div class="card-body">
+                <h5>Original Text:</h5>
+                <p class="border p-3 bg-light">{{ text[:500] }}...</p>
+
+                <form id="verifyForm">
+                    <input type="hidden" name="news_text" value="{{ text }}">
+                    <button type="button" onclick="verifyOnline()" class="btn btn-info">🔎 See Matching Articles</button>
+                </form>
+
+                <div id="verificationResults" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function verifyOnline() {
+    const form = document.getElementById('verifyForm');
+    const data = new FormData(form);
+    const resultsDiv = document.getElementById('verificationResults');
+    
+    resultsDiv.innerHTML = '<p>Searching...</p>';
+
+    fetch('/verify-online', {
+        method: 'POST',
+        body: data
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.error) {
+            resultsDiv.innerHTML = `<p class="text-danger">${data.error}</p>`;
+            return;
+        }
+        if (!data.articles || data.articles.length === 0) {
+            resultsDiv.innerHTML = '<p>No related articles found.</p>';
+            return;
+        }
+        let html = '<h5>Related Articles Found:</h5><div class="row">';
+        data.articles.forEach(article => {
+            const isStrong = article._strong_match;
+            const badge = isStrong
+                ? '<span class="badge bg-success mb-1">About this story</span>'
+                : '<span class="badge bg-secondary mb-1">Loosely related</span>';
+            const published = article.publishedAt ? new Date(article.publishedAt).toLocaleString() : 'Unknown date';
+            html += `
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            ${badge}
+                            <h6>${article.title}</h6>
+                            <p class="small">${article.source.name} - ${published}</p>
+                            <a href="${article.url}" target="_blank" class="btn btn-sm btn-outline-primary">Read Full Article</a>
+                        </div>
+                    </div>
+                </div>`;
+        });
+        html += '</div>';
+        resultsDiv.innerHTML = html;
+    })
+    .catch(err => {
+        resultsDiv.innerHTML = '<p class="text-danger">Something went wrong. Check console for details.</p>';
+        console.error(err);
+    });
+}
+</script>
+{% endblock %}

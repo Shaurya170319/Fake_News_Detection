@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3>🔍 Check if News is Fake or Real</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/predict">
+                    <textarea name="news_text" class="form-control" rows="8" placeholder="Paste news article here..." required></textarea>
+                    <button type="submit" class="btn btn-success btn-lg mt-3 w-100">Analyze with AI</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+.result-card {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.text-content {
+    line-height: 1.6;
+}
+
+/* Combined verdict banner */
+.verdict-banner {
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 5px solid #6c757d;
+    background: #f8f9fa;
+}
+.verdict-banner.verdict-high   { border-left-color: #198754; background: #eafbf1; }
+.verdict-banner.verdict-medium { border-left-color: #ffc107; background: #fff9e6; }
+.verdict-banner.verdict-low    { border-left-color: #dc3545; background: #fdecec; }
+
+.verdict-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6c757d;
+    font-weight: 600;
+}
+
+.verdict-pill {
+    background: #fff;
+    color: #333;
+    border: 1px solid #dee2e6;
+    font-weight: 500;
+}
+
+/* Article cards */
+.article-card {
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.35s ease forwards;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Confidence bar */
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* Toast */
+.app-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #212529;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1050;
+}
+.app-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Buttons */
+.btn-info {
+    transition: transform 0.1s ease;
+}
+.btn-info:active {
+    transform: scale(0.97);
+}
