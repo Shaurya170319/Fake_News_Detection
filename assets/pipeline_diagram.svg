@@ -1,0 +1,68 @@
+<svg viewBox="0 0 1160 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5b6b73"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #d7dee2; stroke-width: 1.5; }
+      .head { font-family: Segoe UI, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 17px; fill: #1e2a30; }
+      .sub  { font-family: Segoe UI, Helvetica, Arial, sans-serif; font-size: 12.5px; fill: #5b6b73; }
+      .tag  { font-family: Segoe UI, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 700; fill: #ffffff; }
+    </style>
+  </defs>
+
+  <rect width="1160" height="300" fill="#f7f9fa"/>
+
+  <!-- Step 1 -->
+  <g transform="translate(30,70)">
+    <rect class="box" width="230" height="150" rx="14"/>
+    <rect x="0" y="0" width="230" height="34" rx="14" fill="#1e3a5f"/>
+    <rect x="0" y="18" width="230" height="16" fill="#1e3a5f"/>
+    <text x="16" y="23" class="tag">STEP 1</text>
+    <text x="20" y="66" class="head">📰 Paste Article</text>
+    <text x="20" y="92" class="sub">User submits article text</text>
+    <text x="20" y="110" class="sub">via the home page form</text>
+  </g>
+
+  <path d="M262 145 H328" stroke="#5b6b73" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <g transform="translate(330,70)">
+    <rect class="box" width="230" height="150" rx="14"/>
+    <rect x="0" y="0" width="230" height="34" rx="14" fill="#1f6f6b"/>
+    <rect x="0" y="18" width="230" height="16" fill="#1f6f6b"/>
+    <text x="16" y="23" class="tag">STEP 2</text>
+    <text x="20" y="66" class="head">🤖 ML Prediction</text>
+    <text x="20" y="92" class="sub">Clean + lemmatize text,</text>
+    <text x="20" y="108" class="sub">TF-IDF + Logistic Regression</text>
+    <text x="20" y="124" class="sub">→ REAL / FAKE + confidence</text>
+  </g>
+
+  <path d="M562 145 H628" stroke="#5b6b73" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 -->
+  <g transform="translate(630,70)">
+    <rect class="box" width="230" height="150" rx="14"/>
+    <rect x="0" y="0" width="230" height="34" rx="14" fill="#166534"/>
+    <rect x="0" y="18" width="230" height="16" fill="#166534"/>
+    <text x="16" y="23" class="tag">STEP 3</text>
+    <text x="20" y="66" class="head">🌐 Live News Search</text>
+    <text x="20" y="92" class="sub">Extract key names/places,</text>
+    <text x="20" y="108" class="sub">search NewsData.io / NewsAPI,</text>
+    <text x="20" y="124" class="sub">tag strong vs. weak matches</text>
+  </g>
+
+  <path d="M862 145 H928" stroke="#5b6b73" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 -->
+  <g transform="translate(930,70)">
+    <rect class="box" width="200" height="150" rx="14"/>
+    <rect x="0" y="0" width="200" height="34" rx="14" fill="#b45309"/>
+    <rect x="0" y="18" width="200" height="16" fill="#b45309"/>
+    <text x="16" y="23" class="tag">STEP 4</text>
+    <text x="20" y="66" class="head">✅ Verdict</text>
+    <text x="20" y="92" class="sub">Merge both signals into</text>
+    <text x="20" y="108" class="sub">one clear verdict banner</text>
+    <text x="20" y="124" class="sub">+ source list</text>
+  </g>
+</svg>

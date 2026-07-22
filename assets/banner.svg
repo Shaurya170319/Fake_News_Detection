@@ -1,0 +1,47 @@
+<svg viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="55%" stop-color="#1f6f6b"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="260" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="130" rx="18" fill="url(#shine)"/>
+
+  <!-- decorative circuit dots -->
+  <g fill="#ffffff" opacity="0.12">
+    <circle cx="80" cy="40" r="3"/>
+    <circle cx="120" cy="60" r="3"/>
+    <circle cx="1080" cy="200" r="3"/>
+    <circle cx="1130" cy="170" r="3"/>
+    <circle cx="1150" cy="220" r="3"/>
+  </g>
+
+  <!-- shield + check icon -->
+  <g transform="translate(95,80)">
+    <path d="M50 0 L100 18 V60 C100 92 78 112 50 122 C22 112 0 92 0 60 V18 Z"
+          fill="#ffffff" opacity="0.95"/>
+    <path d="M28 62 L44 78 L74 40" stroke="#16a34a" stroke-width="9"
+          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- magnifying glass accent -->
+  <g transform="translate(230,95)" opacity="0.9">
+    <circle cx="15" cy="15" r="14" fill="none" stroke="#ffffff" stroke-width="5"/>
+    <line x1="25" y1="25" x2="38" y2="38" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <text x="290" y="115" font-family="Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="50" font-weight="700" fill="#ffffff">Fake News Detection System</text>
+  <text x="292" y="155" font-family="Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="22" fill="#e9f5f1">Machine Learning + Live News Verification</text>
+
+  <text x="292" y="195" font-family="Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="15" fill="#cfe9df">Flask &#183; scikit-learn &#183; TF-IDF &#183; Logistic Regression &#183; NewsData.io</text>
+</svg>
